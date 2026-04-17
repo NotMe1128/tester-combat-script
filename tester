@@ -279,8 +279,7 @@ end
 
 -- Convenience: label + optional interval box + toggle in one row
 -- Returns: toggleGetter, setter, intervalBox (may be nil)
-local screenY = workspace.CurrentCamera.ViewportSize.Y
-local WIN_H = math.min(484, screenY - 80)
+local WIN_W = 330
 
 local function combatRowToggle(parent, labelText, y, onColor)
     lbl(labelText, UDim2.new(0, 200, 0, 28), UDim2.new(0, 14, 0, y), parent, nil, 12)
@@ -313,7 +312,7 @@ makeDraggable(toggleBtn)
 -- MAIN WINDOW
 -------------------------------------------------
 
-local WIN_H = 484
+local WIN_H = 330
 
 local main = Instance.new("Frame")
 main.Name                   = "MainWindow"
@@ -403,32 +402,18 @@ local CONTENT_Y = 74   -- titleBar(40) + tabBar(34)
 local CONTENT_H = WIN_H - CONTENT_Y
 
 local function makeContentFrame()
-
-    local f = Instance.new("ScrollingFrame")
-    f.Size                   = UDim2.new(1, 0, 0, CONTENT_H)
-    f.Position               = UDim2.new(0, 0, 0, CONTENT_Y)
+    local f = Instance.new("Frame")
+    f.Size                  = UDim2.new(1, 0, 0, CONTENT_H)
+    f.Position              = UDim2.new(0, 0, 0, CONTENT_Y)
     f.BackgroundTransparency = 1
-    f.BorderSizePixel        = 0
-
-    f.ScrollBarThickness     = 4
-    f.ScrollBarImageColor3   = C.accent
-    f.CanvasSize             = UDim2.new(0,0,0,0)
-    f.AutomaticCanvasSize    = Enum.AutomaticSize.Y
-
-    f.Parent = main
-
-    local layout = Instance.new("UIListLayout")
-    layout.Padding = UDim.new(0,6)
-    layout.Parent = f
-
+    f.BorderSizePixel       = 0
+    f.Parent                = main
     return f
 end
+
 local followFrame = makeContentFrame()
 local combatFrame = makeContentFrame()
 combatFrame.Visible = false
-
-followFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
-combatFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 
 local function switchTab(toFollow)
     followFrame.Visible = toFollow
