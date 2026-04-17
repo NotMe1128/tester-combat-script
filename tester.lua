@@ -1,9 +1,3 @@
--- ╔══════════════════════════════════════════════════╗
--- ║   BG Testing Suite  v3.0                         ║
--- ║   Tabs: Follow | Combat                          ║
--- ║   For anti-cheat validation on your own game     ║
--- ╚══════════════════════════════════════════════════╝
-
 local Players          = game:GetService("Players")
 local TweenService     = game:GetService("TweenService")
 local RunService       = game:GetService("RunService")
@@ -304,7 +298,7 @@ end
 -- FLOATING TOGGLE BUTTON
 -------------------------------------------------
 
-local toggleBtn = btn("⚔  Tester", UDim2.new(0, 112, 0, 32), UDim2.new(0, 20, 0, 20), gui, C.panel)
+local toggleBtn = btn("Tester", UDim2.new(0, 112, 0, 32), UDim2.new(0, 20, 0, 20), gui, C.panel)
 toggleBtn.BackgroundTransparency = 0.15
 stroke(toggleBtn, C.accent, 1.5)
 makeDraggable(toggleBtn)
@@ -347,7 +341,7 @@ titleFix.BackgroundTransparency = 0.05
 titleFix.BorderSizePixel        = 0
 titleFix.Parent                 = titleBar
 
-lbl("⚔  BG Test Suite  v3.0", UDim2.new(1, -40, 1, 0),
+lbl(" BG Test Suite  v3.0", UDim2.new(1, -40, 1, 0),
     UDim2.new(0, 12, 0, 0), titleBar, Enum.TextXAlignment.Left, 13)
 
 local closeBtn = btn("✕", UDim2.new(0, 26, 0, 26), UDim2.new(1, -32, 0, 7),
@@ -384,7 +378,7 @@ local function makeTab(text, xScale)
     return t
 end
 
-local tabFollow = makeTab("📍  Follow", 0)
+local tabFollow = makeTab(" Follow", 0)
 local tabCombat = makeTab("⚔  Combat", 0.5)
 
 -- animated underline indicator
@@ -455,11 +449,6 @@ closeBtn.MouseButton1Click:Connect(function()
     main.Visible = false
 end)
 
--------------------------------------------------
--- ╔══════════════════════════╗
--- ║   FOLLOW TAB CONTENT     ║
--- ╚══════════════════════════╝
--------------------------------------------------
 
 -- Status bar
 local statusBar = Instance.new("Frame")
@@ -620,12 +609,6 @@ end)
 
 refreshBtn.MouseButton1Click:Connect(refreshPlayers)
 refreshPlayers()
-
--------------------------------------------------
--- ╔══════════════════════════╗
--- ║   COMBAT TAB CONTENT     ║
--- ╚══════════════════════════╝
--------------------------------------------------
 
 -- ── AUTO PUNCH ───────────────────────────────
 secLbl("AUTO PUNCH", 8, combatFrame)
@@ -907,3 +890,5 @@ RunService.Heartbeat:Connect(function()
         end
     end
 end)
+
+
